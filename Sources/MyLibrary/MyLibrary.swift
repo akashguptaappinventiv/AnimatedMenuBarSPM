@@ -18,14 +18,13 @@ public struct AnimatedMenuBar: View {
  
         HStack {
             Spacer()
- 
-            ForEach(menuItems.indices) { index in
+             ForEach(menuItems.indices) { index in
  
                 if index == selectedIndex {
                     Text(menuItems[index])
                         .padding(.horizontal)
                         .padding(.vertical, 4)
-                        .background(Capsule().foregroundColor(Color.purple))
+                        .background(Capsule().foregroundColor(Color.red))
                         .foregroundColor(.white)
                         .matchedGeometryEffect(id: "menuItem", in: menuItemTransition)
                 } else {
@@ -37,14 +36,13 @@ public struct AnimatedMenuBar: View {
                             selectedIndex = index
                         }
                 }
- 
                 Spacer()
             }
- 
         }
         .frame(minWidth: 0, maxWidth: .infinity)
         .padding()
         .animation(.easeInOut, value: selectedIndex)
  
     }
+    
 }
